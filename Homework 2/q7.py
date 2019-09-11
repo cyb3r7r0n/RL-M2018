@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[30]:
+# In[1]:
 
 
 import numpy as np
 from scipy.stats import poisson
-
-import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# In[31]:
+# In[2]:
 
 
 max_cars_loc_1 = 20
@@ -31,7 +29,7 @@ max_parking_loc_1 = 10
 max_parking_loc_2 = 10
 
 
-# In[32]:
+# In[3]:
 
 
 poisson_memo = {}
@@ -43,7 +41,7 @@ def poisson_probability(x, LAMBDA):
     
 
 
-# In[33]:
+# In[4]:
 
 
 def perform_action(s, a, v):
@@ -85,10 +83,9 @@ def perform_action(s, a, v):
         Gt -= move_cost_per_car * (-a)
     return Gt             
                     
-                    
 
 
-# In[34]:
+# In[5]:
 
 
 v = np.zeros((max_cars_loc_1 + 1, max_cars_loc_2 + 1))
@@ -147,7 +144,7 @@ while True:
         break
 
 
-# In[35]:
+# In[6]:
 
 
 _, axes = plt.subplots(len(iteration_policies), 1, figsize=(8, (len(iteration_policies)+1) * 5))
@@ -161,34 +158,8 @@ plt.show()
 plt.close("all")
 
 
-# In[36]:
+# In[7]:
 
 
 print(np.flipud(policy))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-#             num_cars_presently_at_loc_1 = min(num_cars_presently_at_loc_1 + mean_cars_returned_loc_1, max_cars_loc_1)
-#             num_cars_presently_at_loc_2 = min(num_cars_presently_at_loc_2 + mean_cars_returned_loc_2, max_cars_loc_2)
-#             r_ = r
-#             if num_cars_presently_at_loc_1 > max_parking_loc_1:
-#                 r_ -= parking_cost
-#             if num_cars_presently_at_loc_2 > max_parking_loc_2:
-#                 r_ -= parking_cost
-#             p = prob_rental_requests
-#             Gt += p * (r_ + gamma * v[num_cars_presently_at_loc_1, num_cars_presently_at_loc_2])
 
